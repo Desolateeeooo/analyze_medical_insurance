@@ -1,0 +1,15 @@
+plt.scatter(y_test, y_predicted, alpha=0.4)
+plt.plot(range(60000), range(60000))
+plt.xlabel("Prices: $Y_i$")
+plt.ylabel("Predicted prices: $\hat{Y}_i$")
+plt.title("Actual Insurance Cost vs Predicted Insurance Cost")
+plt.show()
+
+from sklearn.metrics import r2_score, mean_absolute_error
+
+r2 = r2_score(y_test, y_predicted)
+mae = mean_absolute_error(y_test, y_predicted)
+
+print(f"R² Score: {r2:.4f}")
+print(f"Mean Absolute Error: ${mae:.2f}")
+print(f"Average Actual Charge: ${y_test.mean():.2f}")

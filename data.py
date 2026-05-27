@@ -1,7 +1,6 @@
-import numpy as np
 import pandas as pd
 
-med_insurance = pd.read_csv('insurance.csv')
+med_insurance = pd.read_csv('./data/insurance.csv')
 
 partition_by_bmi = lambda bmi: 'Underweight' if bmi < 25.0 else 'Overweight'
 bmi_copy = med_insurance['bmi']
@@ -26,6 +25,6 @@ print(med_insurance_2.head(5))
 med_insurance_2 = pd.get_dummies(data=med_insurance_2, columns=['weight_category', 'region'], dtype='int')
 print(med_insurance_2.head(5))
 
-med_insurance_2.to_csv('med_insurance_processed.csv', index=False)
+med_insurance_2.to_csv('./data/med_insurance_processed.csv', index=False)
 
 
