@@ -1,8 +1,10 @@
 import pandas as pd
 
 med_insurance = pd.read_csv('./data/insurance.csv')
+print(med_insurance.head(5))
 
 partition_by_bmi = lambda bmi: 'Underweight' if bmi < 25.0 else 'Overweight'
+
 bmi_copy = med_insurance['bmi']
 med_insurance_bmi = bmi_copy.apply(partition_by_bmi)
 med_insurance_bmi = med_insurance_bmi.to_frame()
